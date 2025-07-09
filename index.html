@@ -8,14 +8,25 @@
 </head>
 <body>
 
-  <h1>Generador de QR para Kiosko</h1>
+  <h1>Panel de Control - Generador de QR</h1>
 
-  <label>
-    URL en la nube (con comandos):
-    <input type="text" id="urlInput" value="https://tuapp.com/ejecutar?accion=imprimir&documento=doc1.pdf" size="60">
-  </label>
-  <br><br>
-  <button onclick="generarQR()">Generar QR</button>
+  <div class="menu">
+    <label>Acción:
+      <select id="accion">
+        <option value="imprimir">Imprimir</option>
+        <option value="mostrar">Mostrar documento</option>
+        <option value="alerta">Alerta</option>
+        <option value="audio">Reproducir audio</option>
+        <option value="navegar">Redirigir a URL</option>
+      </select>
+    </label>
+    <br><br>
+    <label>Documento / URL / Audio / Mensaje:
+      <input type="text" id="parametro" size="60" placeholder="Ej: archivo.pdf o https://... o mensaje"/>
+    </label>
+    <br><br>
+    <button onclick="generarDesdeMenu()">Generar QR</button>
+  </div>
 
   <div id="qrcode"></div>
 
