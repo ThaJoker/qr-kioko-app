@@ -100,3 +100,21 @@ function ejecutarDirectiva() {
 if (window.location.search.includes("accion")) {
   ejecutarDirectiva();
 }
+
+async function listarArchivos() {
+  const listaDiv = document.getElementById("archivoSubido");
+  listaDiv.innerHTML = "<h3>Archivos subidos:</h3><ul>";
+  try {
+    const archivosRef = storage.ref("archivos");
+    const lista = await archivosRef.listAll();
+    for (const item of lista.items) {
+      const url = await item.getDownloadURL();
+      listaDiv.innerHTML += `<li><a href="\${url}" target="_blank">\${item.name}</a></li>`;
+    }
+    listaDiv.innerHTML += "</ul>";
+  } catch (err) {
+    listaDiv.innerHTML = "❌ Error al listar archivos: " + err.message;
+  }
+}
+
+window.onload = listarArchivos;
