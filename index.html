@@ -8,7 +8,7 @@
 </head>
 <body>
 
-  <h1>Panel de Control - Generador de QR</h1>
+  <h1>Panel de Control - Subir y Generar QR</h1>
 
   <div class="menu">
     <label>Acción:
@@ -21,17 +21,26 @@
       </select>
     </label>
     <br><br>
-    <label>Documento / URL / Audio / Mensaje:
-      <input type="text" id="parametro" size="60" placeholder="Ej: archivo.pdf o https://... o mensaje"/>
+
+    <label>Mensaje / URL / Texto:
+      <input type="text" id="parametro" size="60" placeholder="Opcional si subís archivo..."/>
     </label>
     <br><br>
-    <button onclick="generarDesdeMenu()">Generar QR</button>
+
+    <label>Seleccionar archivo (PDF, audio, etc.):
+      <input type="file" id="archivo" />
+    </label>
+    <br><br>
+
+    <button onclick="generarDesdeMenu()">Subir y Generar QR</button>
   </div>
 
   <div id="qrcode"></div>
 
   <div class="log" id="logKiosko"></div>
 
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-storage.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
   <script src="script.js"></script>
 </body>
