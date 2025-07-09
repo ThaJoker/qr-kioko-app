@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>QR para Kiosko</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <h1>Generador de QR para Kiosko</h1>
+
+  <label>
+    URL en la nube (con comandos):
+    <input type="text" id="urlInput" value="https://tuapp.com/ejecutar?accion=imprimir&documento=doc1.pdf" size="60">
+  </label>
+  <br><br>
+  <button onclick="generarQR()">Generar QR</button>
+
+  <div id="qrcode"></div>
+
+  <div class="log" id="logKiosko"></div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
